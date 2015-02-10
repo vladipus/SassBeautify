@@ -206,10 +206,10 @@ class SassBeautifyCommand(sublime_plugin.TextCommand):
         '''
 
         if type(output) is bytes:
-            output = output.decode('utf-8')
+            output = output.decode('utf-8', errors='replace')
 
         if type(error) is bytes:
-            error = error.decode('utf-8')
+            error = error.decode('utf-8', errors='replace')
 
         if returncode != 0:
             return self.error_message(
